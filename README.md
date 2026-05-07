@@ -57,10 +57,23 @@ score determines the value of the first move.
 
 # Results and Observations
 
-Beam Search provided smoother and more consistent gameplay, the agent handled awkward sequences (especially S/Z or J/L combinations) much better
-the agent avoided committing to extremely tall columns when the next piece would not fit.  in the end beam search was able to drastically
-improve the scores (see BEAMSEARCHPNG.png). The second time I was forced to lose on purpose, because it seemed like it was never going to lose.
-I was not able to test it anymore, it took about an hour for these 2 attempts.
+Beam Search made the gameplay much smoother and more consistent.
+The agent handled awkward piece sequences better, especially combinations involving `S`, `Z`, `J`, and `L` pieces.
+It also avoided committing to extremely tall columns when the next piece would not fit well.
+In my limited testing, Beam Search drastically improved the scores. The result screenshot is shown in `BEAMSEARCHPNG.png`.
+One run was manually stopped because the agent continued for too long and did not seem close to losing. Because each run could take a long time, I was only able to test Beam Search on a small number of full attempts.
+In the runs I tested, the Beam Search version reached scores above `3,000,000`.
+More runs would be needed to calculate a reliable average, but the improvement compared to the previous heuristic-only agent was very clear.
 
-AVERAGE score is AT LEAST 3 million, probably even more.
+---
+
+# Summary
+
+This project improved the Tetris AI agent in three main stages:
+
+1. Fixed correctness bugs in move generation, hole detection, line removal, and board evaluation.
+2. Improved the heuristic evaluation by adjusting weights and adding a wall/well penalty.
+3. Added Beam Search so the agent could consider the next piece before choosing a move.
+
+The final version is a search-based AI agent that uses legal move generation, heuristic board evaluation, and limited lookahead to make stronger decisions.
 
